@@ -10,10 +10,17 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
+    public GameObject CreateAndJoinPanel;
+    public GameObject RoomPanel;
+    public TMP_Text roomName;
+    public TMP_Text playerName;
 
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(createInput.text);
+        if (createInput.text.Length > 0)
+        {
+            PhotonNetwork.CreateRoom(createInput.text);
+        }
     }
 
     public void JoinRoom()
@@ -23,7 +30,11 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("Game");
+        CreateAndJoinPanel.SetActive(false);
+        RoomPanel.SetActive(true);
+        roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
+        playerName.text = "Player Name " + PhotonNetwork.NickName;
+       //  PhotonNetwork.LoadLevel("Game");
     }
 
 }
