@@ -26,7 +26,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         if (createInput.text.Length > 0)
         {
-            PhotonNetwork.CreateRoom(createInput.text);
+            PhotonNetwork.CreateRoom(createInput.text, new RoomOptions() { BroadcastPropsChangeToAll = true });
         }
 
     }
@@ -42,6 +42,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         RoomPanel.SetActive(true);
         roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
         playerName.text = "Player Name " + PhotonNetwork.NickName;
+        UpdatePlayerList();
        //  PhotonNetwork.LoadLevel("Game");
     }
 
@@ -58,6 +59,12 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         {
             PlayerObject newPlayerObject = Instantiate(playerObjectPrefab, playerObjectParent);
             newPlayerObject.SetPlayerName(player.Value);
+
+            if (player.Value.IsLocal)
+            {
+                newPlayerObject.ApplyLocalChanges();
+            }
+
             playerObjects.Add(newPlayerObject);
         }
     }

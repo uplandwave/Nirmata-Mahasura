@@ -256,7 +256,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4345809308078166888}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7809778719663486162}
+        m_TargetAssemblyTypeName: PlayerObject, Assembly-CSharp
+        m_MethodName: OnClickLeftArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3089526971265393232
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +324,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerName: {fileID: 8309144502813993998}
+  highlightColor: {r: 0.8207547, g: 0.46594003, b: 0.16569953, a: 0.4117647}
+  rightArrowButton: {fileID: 3744401412959407046}
+  leftArrowButton: {fileID: 1475699184415668583}
+  playerAvatar: {fileID: 0}
+  avatars: []
 --- !u!1 &3744401412959407046
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +450,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3447597424419060167}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7809778719663486162}
+        m_TargetAssemblyTypeName: PlayerObject, Assembly-CSharp
+        m_MethodName: OnClickRightArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5885979467027540560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -9094496271808380837, guid: e837422a5c7d266498ae8e1e6778052e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
