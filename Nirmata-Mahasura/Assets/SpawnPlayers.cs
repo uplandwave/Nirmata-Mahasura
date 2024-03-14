@@ -7,6 +7,7 @@ public class SpawnPlayers : MonoBehaviour
 {
     public GameObject playerPrefab;
 
+
     public void Start()
     {
         Vector2 spawnPosition = new Vector2(0,0);

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
     PhotonView view;
+    public Camera camera;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
