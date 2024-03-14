@@ -1015,7 +1015,7 @@ MonoBehaviour:
   playerObjects: []
   playerObjectPrefab: {fileID: 7809778719663486162, guid: 952290e26fd164046ae9ed9eb926ccf7, type: 3}
   playerObjectParent: {fileID: 1765556582}
-  startButton: {fileID: 0}
+  startButton: {fileID: 1894072555}
 --- !u!4 &1569548800
 Transform:
   m_ObjectHideFlags: 0
