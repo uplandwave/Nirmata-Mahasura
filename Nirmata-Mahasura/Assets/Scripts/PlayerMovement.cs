@@ -1,73 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 16f;
-    private bool isFacingRight = true;
-    PhotonView view;
-    public Camera camera;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    public CharacterController2D controller;
+    public Animator animator;
 
-    public void Start()
-    {
-        view = GetComponent<PhotonView>();
-    }
+    public float runSpeed = 10f;
 
+    float horizontalMove = 0f;
+    bool jump = false;
+    bool roll = false;
+
+    // Update is called once per frame
     void Update()
     {
-        
 
-        if (view.IsMine)
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
+        if (Input.GetButtonDown("Jump"))
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
-
-            if (Input.GetButtonDown("Jump") && IsGrounded() )
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            }
-
-            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-            }
-
-            Flip();
-
-            void Flip()
-            {
-                if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-                {
-                    isFacingRight = !isFacingRight;
-                    Vector3 localScale = transform.localScale;
-                    localScale.x *= -1f;
-                    transform.localScale = localScale;
-                }
-            }
-
-            bool IsGrounded()
-            {
-                return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-            }
-
+            jump = true;
+            animator.SetBool("IsJumping", true);
         }
 
-
+        if (Input.GetButtonDown("Roll"))
+        {
+            roll = true;
+            animator.SetBool("IsRolling", true);
+        }
+        else
+        {
+            roll = false;
+            animator.SetBool("IsRolling", false);
+        }
     }
 
-    private void FixedUpdate()
+    public void OnLanding()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        animator.SetBool("IsJumping", false);
     }
 
+    //public void OnRolling()
+    //{
+    //    animator.SetBool("IsCrouching", isCrouching);
+    //}
 
-
-
+    void FixedUpdate()
+    {
+        // Move our character
+        controller.Move(horizontalMove * Time.fixedDeltaTime, roll, jump);
+        jump = false;
+    }
 }
