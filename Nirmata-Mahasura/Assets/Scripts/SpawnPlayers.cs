@@ -5,11 +5,12 @@ using Photon.Pun;
 
 public class SpawnPlayers : MonoBehaviour
 {
-    public GameObject playerPrefab;
+    public GameObject[] playerPrefabs;
 
     public void Start()
     {
         Vector2 spawnPosition = new Vector2(0,0);
-        PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, Quaternion.identity);
+        GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
+        PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition, Quaternion.identity);
     }
 }
