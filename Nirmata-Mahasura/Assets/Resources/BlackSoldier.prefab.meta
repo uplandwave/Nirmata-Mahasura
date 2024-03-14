@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Nirmata-Mahasura/Assets/Resources/BlackSoldier.prefab.meta
 guid: 1ffdf95fd8feab049a7ab88b400c2abf
 PrefabImporter:
+========
+guid: b22351d550d54514a8f9aa5254afaba3
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> 8f54a28fb39e8990838d8e6f413ba43edfa814f7:Nirmata-Mahasura/Assets/MagicCliffsArtwork.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
