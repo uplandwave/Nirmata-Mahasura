@@ -22,6 +22,27 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public PlayerObject playerObjectPrefab;
     public Transform playerObjectParent;
 
+    // start button
+    public GameObject startButton;
+
+    private void Start()
+    {
+        CreateAndJoinPanel.SetActive(true);
+        RoomPanel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            startButton.SetActive(true);
+        }
+        else
+        {
+            startButton.SetActive(false);
+        }
+    }
+
     public void CreateRoom()
     {
         if (createInput.text.Length > 0)
@@ -43,7 +64,11 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
         playerName.text = "Player Name " + PhotonNetwork.NickName;
         UpdatePlayerList();
-       //  PhotonNetwork.LoadLevel("Game");
+    }
+
+    public void OnClickedPlayGameButton()
+    {
+        PhotonNetwork.LoadLevel("Game");
     }
 
     public void UpdatePlayerList()
