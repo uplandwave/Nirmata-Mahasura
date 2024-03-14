@@ -9,7 +9,7 @@ public class SpawnPlayers : MonoBehaviour
 
     public void Start()
     {
-        Vector2 spawnPosition = new Vector2(0,0);
+        Vector2 spawnPosition = new Vector2(-3,17);
         GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
         PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition, Quaternion.identity);
     }

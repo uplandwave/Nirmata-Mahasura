@@ -68,7 +68,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public void OnClickedPlayGameButton()
     {
-        PhotonNetwork.LoadLevel("Game");
+        PhotonNetwork.LoadLevel("Earth");
     }
 
     public void UpdatePlayerList()
