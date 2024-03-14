@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2699326976708505855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.114, y: -0.167, z: 0}
+  m_LocalPosition: {x: -0.156, y: -0.552, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,7 +46,11 @@ GameObject:
   - component: {fileID: 4740240748452570802}
   - component: {fileID: 1495871108988529178}
   - component: {fileID: 2931875169403780666}
+<<<<<<< Updated upstream
   - component: {fileID: -2430927465228346655}
+=======
+  - component: {fileID: 2795463264925599025}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -111,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3531fe07db5cd6241a7d80740c3b15e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c39bcb37c7743b4eb731f5b1e22251a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -150,7 +154,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9186201601884850598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 95c6585a1c9130546871576f9c6615bd, type: 2}
   m_IsTrigger: 0
@@ -160,7 +164,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.25, y: 1.109375}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -242,13 +246,19 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+<<<<<<< Updated upstream
 --- !u!20 &-2430927465228346655
 Camera:
+=======
+--- !u!60 &2795463264925599025
+PolygonCollider2D:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9186201601884850598}
+<<<<<<< Updated upstream
   m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
@@ -285,3 +295,35 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+=======
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.25, y: 1.109375}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.203125, y: 0.1484375}
+      - {x: 0.203125, y: 0.3515625}
+      - {x: 0.109375, y: 0.3828125}
+      - {x: -0.0625, y: 0.3828125}
+      - {x: -0.15625, y: 0.3203125}
+      - {x: -0.171875, y: 0.1640625}
+      - {x: -0.171875, y: -0.1171875}
+      - {x: -0.140625, y: -0.2890625}
+      - {x: -0.171875, y: -0.5546875}
+      - {x: 0.203125, y: -0.5546875}
+      - {x: 0.21875, y: -0.2890625}
+      - {x: 0.21875, y: 0.0859375}
+>>>>>>> Stashed changes
