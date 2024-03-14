@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2023166939062340779}
   - component: {fileID: 8745408567231078293}
   - component: {fileID: 8560414131230784320}
+  - component: {fileID: 6419586475897262559}
+  - component: {fileID: 3438000971552470974}
   m_Layer: 0
   m_Name: BlackSoldier
   m_TagString: Untagged
@@ -109,9 +111,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!60 &1479662147926180536
 PolygonCollider2D:
@@ -150,8 +152,8 @@ PolygonCollider2D:
       - {x: -0.09356642, y: -1.0076334}
       - {x: 0.3765378, y: -0.9771526}
       - {x: 0.36132383, y: -0.22577715}
-      - {x: 1.0640373, y: 0.0075256824}
-      - {x: 1.0803108, y: 0.28727317}
+      - {x: 0.9255886, y: 0.03213811}
+      - {x: 0.9234028, y: 0.30880904}
       - {x: 0.8722024, y: 0.36317885}
 --- !u!95 &2023166939062340779
 Animator:
@@ -228,7 +230,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8745408567231078293}
   animator: {fileID: 2023166939062340779}
-  runSpeed: 10
+  runSpeed: 150
+--- !u!114 &6419586475897262559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566425050407043663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8631f389951a844918b09638f2e8b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 6044608554775186774}
+  bulletPrefab: {fileID: 5818380675147103499, guid: 08ed5d94c87929e41bf4dd94ffa74bca, type: 3}
+--- !u!114 &3438000971552470974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566425050407043663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24542dd8f67a294e893ce36f170b5da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2023166939062340779}
+  maxHealth: 100
 --- !u!1 &6482411213854777772
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8519639046296982813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.02, y: -0.12, z: 0}
+  m_LocalPosition: {x: 1.16, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
