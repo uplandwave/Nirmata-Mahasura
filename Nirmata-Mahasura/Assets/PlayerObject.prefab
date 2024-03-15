@@ -329,8 +329,8 @@ MonoBehaviour:
   playerAvatar: {fileID: 2302858024311495730}
   avatars:
   - {fileID: -934575604, guid: e3c5e9a5818897348bd16dd838aa1d12, type: 3}
-  - {fileID: 21300000, guid: b578eea0a5e8c974fa425146d8c4cc4f, type: 3}
-  - {fileID: 21300000, guid: 1e25a9b89ef4d3340906f58d2dcf1cee, type: 3}
+  - {fileID: -1074868721, guid: 6893b06f602ac8a4a8c3086675067ce6, type: 3}
+  - {fileID: -1504126775, guid: 5ca7a40b5dbec0c478f570be9b400325, type: 3}
 --- !u!1 &3744401412959407046
 GameObject:
   m_ObjectHideFlags: 0

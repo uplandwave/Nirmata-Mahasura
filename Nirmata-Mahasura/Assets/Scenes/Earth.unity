@@ -6103,7 +6103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabs:
   - {fileID: 5566425050407043663, guid: 1ffdf95fd8feab049a7ab88b400c2abf, type: 3}
-  - {fileID: 5566425050407043663, guid: 1ffdf95fd8feab049a7ab88b400c2abf, type: 3}
+  - {fileID: 5409848424566704001, guid: e4e4f69f282bb424e87dc7125da46b40, type: 3}
   - {fileID: 9186201601884850598, guid: ed82e8015e40d3b43aa79b7dcac12561, type: 3}
 --- !u!4 &244203021
 Transform:
