@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 8560414131230784320}
   - component: {fileID: 6419586475897262559}
   - component: {fileID: 3438000971552470974}
-  - component: {fileID: 7259545977614518683}
-  - component: {fileID: -5211508303355943631}
-  - component: {fileID: -8413093446292013188}
+  - component: {fileID: 848769629918479944}
+  - component: {fileID: -2539939691243158187}
+  - component: {fileID: 6828532557507511932}
   m_Layer: 0
   m_Name: BlackSoldier
   m_TagString: Untagged
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 6044608554775186774}
   bulletPrefab: {fileID: 5818380675147103499, guid: 08ed5d94c87929e41bf4dd94ffa74bca, type: 3}
-  view: {fileID: 7259545977614518683}
+  view: {fileID: 848769629918479944}
 --- !u!114 &3438000971552470974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2023166939062340779}
   maxHealth: 100
---- !u!114 &7259545977614518683
+--- !u!114 &848769629918479944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,12 +282,12 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: -5211508303355943631}
-  - {fileID: -8413093446292013188}
+  - {fileID: -2539939691243158187}
+  - {fileID: 6828532557507511932}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-5211508303355943631
+--- !u!114 &-2539939691243158187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -320,7 +320,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-8413093446292013188
+--- !u!114 &6828532557507511932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,7 +436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8519639046296982813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.317, y: 0.159, z: 0}
+  m_LocalPosition: {x: 1.16, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

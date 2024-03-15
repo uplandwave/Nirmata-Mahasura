@@ -76,8 +76,9 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        if (photonView.IsMine || !PhotonNetwork.IsConnected)
+        if (photonView.IsMine || !PhotonNetwork.IsConnected) 
         {
+
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
             {
@@ -123,25 +124,19 @@ public class CharacterController2D : MonoBehaviour
                     Flip();
                 }
             }
-            // If the player should jump...
+                // If the player should jump...
             if (m_Grounded && jump)
-            {
-                // Add a vertical force to the player.
-                m_Grounded = false;
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-                if (m_Rigidbody2D.velocity.y > 0) // moving UpSide
                 {
-                    m_Rigidbody2D.gravityScale = 1;
-                }
-                else // moving on ground
-                {
-                    m_Rigidbody2D.gravityScale = 4; // double gravity scale for jumping down
-                }
+                    // Add a vertical force to the player.
+                    m_Grounded = false;
+                    m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
 
             animator.SetFloat("Speed", Mathf.Abs(move));
             animator.SetBool("IsJumping", !m_Grounded);
+            
         }
+
     }
 
 
