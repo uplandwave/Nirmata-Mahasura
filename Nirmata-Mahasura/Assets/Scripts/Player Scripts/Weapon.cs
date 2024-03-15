@@ -10,8 +10,6 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     PhotonView view;
 
-    PhotonView view;
-
     // Update is called once per frame
     void Update()
     {
