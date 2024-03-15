@@ -33,8 +33,6 @@ public class Health : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         //GetComponent<Collider2D>().enabled = false;
-
-
         Destroy(gameObject, 1f);
     }
 }

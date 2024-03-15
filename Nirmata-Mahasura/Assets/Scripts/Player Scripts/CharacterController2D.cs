@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using Photon.Pun;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -30,9 +31,14 @@ public class CharacterController2D : MonoBehaviour
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
 
+    private PhotonView photonView;
+    private Animator animator;
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        photonView = GetComponent<PhotonView>();
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
@@ -70,57 +76,71 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        //only control the player if grounded or airControl is turned on
-        if (m_Grounded || m_AirControl)
+        if (photonView.IsMine || !PhotonNetwork.IsConnected)
         {
-
-            // If couching
-            if (crouch)
+            //only control the player if grounded or airControl is turned on
+            if (m_Grounded || m_AirControl)
             {
-                if (!m_wasCrouching)
+
+                // If couching
+                if (crouch)
                 {
-                    m_wasCrouching = true;
+                    if (!m_wasCrouching)
+                    {
+                        m_wasCrouching = true;
+                    }
+
+                    // Reduce the speed by the crouchSpeed multiplier
+                    move *= m_CrouchSpeed;
+
+                    // Disable one of the colliders when crouching
+                }
+                else
+                {
+                    // Enable the collider when not crouching
+
+                    if (m_wasCrouching)
+                    {
+                        m_wasCrouching = false;
+                    }
                 }
 
-                // Reduce the speed by the crouchSpeed multiplier
-                move *= m_CrouchSpeed;
+                // Move the character by finding the target velocity
+                Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+                // And then smoothing it out and applying it to the character
+                m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-                // Disable one of the colliders when crouching
-            }
-            else
-            {
-                // Enable the collider when not crouching
-
-                if (m_wasCrouching)
+                // If the input is moving the player right and the player is facing left...
+                if (move > 0 && !m_FacingRight)
                 {
-                    m_wasCrouching = false;
+                    // ... flip the player.
+                    Flip();
+                }
+                // Otherwise if the input is moving the player left and the player is facing right...
+                else if (move < 0 && m_FacingRight)
+                {
+                    // ... flip the player.
+                    Flip();
+                }
+            }
+            // If the player should jump...
+            if (m_Grounded && jump)
+            {
+                // Add a vertical force to the player.
+                m_Grounded = false;
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                if (m_Rigidbody2D.velocity.y > 0) // moving UpSide
+                {
+                    m_Rigidbody2D.gravityScale = 1;
+                }
+                else // moving on ground
+                {
+                    m_Rigidbody2D.gravityScale = 4; // double gravity scale for jumping down
                 }
             }
 
-            // Move the character by finding the target velocity
-            Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-            // And then smoothing it out and applying it to the character
-            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-
-            // If the input is moving the player right and the player is facing left...
-            if (move > 0 && !m_FacingRight)
-            {
-                // ... flip the player.
-                Flip();
-            }
-            // Otherwise if the input is moving the player left and the player is facing right...
-            else if (move < 0 && m_FacingRight)
-            {
-                // ... flip the player.
-                Flip();
-            }
-        }
-        // If the player should jump...
-        if (m_Grounded && jump)
-        {
-            // Add a vertical force to the player.
-            m_Grounded = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            animator.SetFloat("Speed", Mathf.Abs(move));
+            animator.SetBool("IsJumping", !m_Grounded);
         }
     }
 

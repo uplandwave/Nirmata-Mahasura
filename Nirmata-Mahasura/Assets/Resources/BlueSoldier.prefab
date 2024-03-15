@@ -253,7 +253,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_GroundCheck: {fileID: 4045877680562564735}
   m_CeilingCheck: {fileID: 7745740205183306005}
   m_CrouchDisableCollider: {fileID: 0}
@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 4523904988883978733}
   bulletPrefab: {fileID: 5818380675147103499, guid: 08ed5d94c87929e41bf4dd94ffa74bca, type: 3}
+  view: {fileID: 1525635501685269847}
 --- !u!114 &5305656840304954183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +390,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 1
+    Name: Speed
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsJumping
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsDead
+  - Type: 9
+    SynchronizeType: 1
+    Name: Hurt
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
