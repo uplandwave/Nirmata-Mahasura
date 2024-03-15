@@ -329,8 +329,8 @@ MonoBehaviour:
   playerAvatar: {fileID: 2302858024311495730}
   avatars:
   - {fileID: -934575604, guid: e3c5e9a5818897348bd16dd838aa1d12, type: 3}
-  - {fileID: 21300000, guid: b578eea0a5e8c974fa425146d8c4cc4f, type: 3}
-  - {fileID: 21300000, guid: 1e25a9b89ef4d3340906f58d2dcf1cee, type: 3}
+  - {fileID: -1074868721, guid: 6893b06f602ac8a4a8c3086675067ce6, type: 3}
+  - {fileID: -823511405, guid: 5ca7a40b5dbec0c478f570be9b400325, type: 3}
 --- !u!1 &3744401412959407046
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.25, y: 0}
+  m_AnchoredPosition: {x: 0.8, y: 0.7}
   m_SizeDelta: {x: 139.84, y: 141.1716}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3085621390234062959
@@ -803,7 +803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46f455cac06f6124fb3265573ad36489, type: 3}
+  m_Sprite: {fileID: -934575604, guid: e3c5e9a5818897348bd16dd838aa1d12, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

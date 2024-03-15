@@ -23165,7 +23165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabs:
   - {fileID: 5566425050407043663, guid: 1ffdf95fd8feab049a7ab88b400c2abf, type: 3}
-  - {fileID: 9186201601884850598, guid: ed82e8015e40d3b43aa79b7dcac12561, type: 3}
+  - {fileID: 5409848424566704001, guid: e4e4f69f282bb424e87dc7125da46b40, type: 3}
   - {fileID: 9186201601884850598, guid: 4d8a610a77b47c84785729886686df69, type: 3}
 --- !u!4 &1918130558
 Transform:
@@ -23175,7 +23175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918130556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 324.65463, y: 207.84108, z: 3.7839692}
+  m_LocalPosition: {x: 150.4, y: 100.3, z: 3.7839692}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
