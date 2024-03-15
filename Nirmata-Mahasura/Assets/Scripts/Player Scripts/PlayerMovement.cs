@@ -5,17 +5,18 @@ using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public CharacterController2D controller;
     public Animator animator;
     PhotonView view;
 
-    public float runSpeed = 150f;
+    public float runSpeed = 10f;
 
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
 
-    public void Start()
+    void Start () 
     {
         view = GetComponent<PhotonView>();
     }
@@ -47,13 +48,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     public void OnLanding()
     {
-        if (view.IsMine)
-        {
-            animator.SetBool("IsJumping", false);
-        }
+        animator.SetBool("IsJumping", false);
     }
 
     //public void OnCrouching()
