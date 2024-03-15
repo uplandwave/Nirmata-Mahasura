@@ -181,12 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f172dc3969e0ec44b2ba1ec77d8b10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  rb: {fileID: 540204375114682706}
-  groundCheck: {fileID: 7828848118286042966}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  controller: {fileID: 0}
+  animator: {fileID: 0}
+  runSpeed: 10
 --- !u!114 &1495871108988529178
 MonoBehaviour:
   m_ObjectHideFlags: 0
