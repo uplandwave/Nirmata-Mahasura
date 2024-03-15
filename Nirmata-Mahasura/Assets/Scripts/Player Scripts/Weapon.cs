@@ -3,28 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    PhotonView view;
+    public PhotonView view;
 
+    [PunRPC]
+    void Shoot()
+    {
+
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+
+    }
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (view.IsMine && Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            view.RPC("Shoot", RpcTarget.All);
         }
-        
-    }
-    void Shoot()
-    {
-      
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        
 
     }
 }
