@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 10f;
 
-    float horizontalMove = 0f;
+    float horizontalMove = 150f;
     bool jump = false;
     bool crouch = false;
 
