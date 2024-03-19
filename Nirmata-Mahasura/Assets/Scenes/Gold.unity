@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &12099876 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7259545977614518683, guid: 1ffdf95fd8feab049a7ab88b400c2abf, type: 3}
-  m_PrefabInstance: {fileID: 1811713388}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &294300241
 GameObject:
   m_ObjectHideFlags: 0
@@ -4009,6 +3998,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 848769629918479944, guid: 1ffdf95fd8feab049a7ab88b400c2abf, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4024149516376084294, guid: 1ffdf95fd8feab049a7ab88b400c2abf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4060,7 +4053,7 @@ PrefabInstance:
     - target: {fileID: 6419586475897262559, guid: 1ffdf95fd8feab049a7ab88b400c2abf, type: 3}
       propertyPath: view
       value: 
-      objectReference: {fileID: 12099876}
+      objectReference: {fileID: 0}
     - target: {fileID: 7259545977614518683, guid: 1ffdf95fd8feab049a7ab88b400c2abf, type: 3}
       propertyPath: sceneViewId
       value: 1

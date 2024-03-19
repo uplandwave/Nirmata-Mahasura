@@ -9,11 +9,14 @@ using TMPro;
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
+    // panels
+    public GameObject CreateAndJoinPanel;
+    public GameObject RoomPanel;
+    public GameObject MapSelectPanel;
+
     // create and join room objects
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
-    public GameObject CreateAndJoinPanel;
-    public GameObject RoomPanel;
     public TMP_Text roomName;
     public TMP_Text playerName;
 
@@ -21,14 +24,25 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public List<PlayerObject> playerObjects = new List<PlayerObject>();
     public PlayerObject playerObjectPrefab;
     public Transform playerObjectParent;
-
-    // start button
     public GameObject startButton;
+
+    // map select objects
+    public Image mapImage;
+    public Sprite[] maps;
+    public string[] mapNames;
+    public GameObject rightArrowButton;
+    public GameObject leftArrowButton;
+    public GameObject selectButton;
+
+    public int mapIndex = 0;
+    public string mapName;
 
     private void Start()
     {
         CreateAndJoinPanel.SetActive(true);
         RoomPanel.SetActive(false);
+        MapSelectPanel.SetActive(false);
+        UpdateMapImage();
     }
 
     private void Update()
@@ -43,13 +57,14 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         }
     }
 
-    public void CreateRoom()
+    public void OnCreateRoomButton()
     {
         if (createInput.text.Length > 0)
         {
-            PhotonNetwork.CreateRoom(createInput.text, new RoomOptions() { BroadcastPropsChangeToAll = true });
+            CreateAndJoinPanel.SetActive(false);
+            RoomPanel.SetActive(false);
+            MapSelectPanel.SetActive(true);
         }
-
     }
 
     public void JoinRoom()
@@ -60,15 +75,15 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         CreateAndJoinPanel.SetActive(false);
+        MapSelectPanel.SetActive(false);
         RoomPanel.SetActive(true);
         roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
-        playerName.text = "Player Name " + PhotonNetwork.NickName;
         UpdatePlayerList();
     }
 
     public void OnClickedPlayGameButton()
     {
-        PhotonNetwork.LoadLevel("Earth");
+        PhotonNetwork.LoadLevel(mapName);
     }
 
     public void UpdatePlayerList()
@@ -102,5 +117,45 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         UpdatePlayerList();
+    }
+
+    public void OnClickRightArrowMapSelect()
+    {
+        if (mapIndex == maps.Length - 1)
+        {
+            mapIndex = 0;
+        }
+        else
+        {
+            mapIndex++;
+        }
+        UpdateMapImage();
+    }
+
+    public void OnClickLeftArrowMapSelect()
+    {
+        if (mapIndex == 0)
+        {
+            mapIndex = maps.Length - 1;
+        }
+        else
+        {
+            mapIndex--;
+        }
+        UpdateMapImage();
+    }
+
+    public void OnClickSelectMap()
+    {
+        PhotonNetwork.CreateRoom(createInput.text, new RoomOptions() { BroadcastPropsChangeToAll = true });
+        CreateAndJoinPanel.SetActive(false);
+        MapSelectPanel.SetActive(false);
+        RoomPanel.SetActive(true);
+        mapName= mapNames[mapIndex];
+    }
+
+    public void UpdateMapImage()
+    {
+        mapImage.sprite = maps[mapIndex];
     }
 }
