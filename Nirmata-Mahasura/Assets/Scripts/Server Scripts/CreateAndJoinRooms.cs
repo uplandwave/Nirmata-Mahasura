@@ -25,6 +25,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public PlayerObject playerObjectPrefab;
     public Transform playerObjectParent;
     public GameObject startButton;
+    public GameObject mapSelectEnableButton;
 
     // map select objects
     public Image mapImage;
@@ -49,11 +50,16 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            startButton.SetActive(true);
+            if (!MapSelectPanel.activeSelf)
+            {
+                mapSelectEnableButton.SetActive(true);
+                startButton.SetActive(true);
+            }
         }
         else
         {
             startButton.SetActive(false);
+            mapSelectEnableButton.SetActive(false);
         }
     }
 
@@ -61,9 +67,10 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         if (createInput.text.Length > 0)
         {
+            PhotonNetwork.CreateRoom(createInput.text, new RoomOptions() { BroadcastPropsChangeToAll = true });
             CreateAndJoinPanel.SetActive(false);
-            RoomPanel.SetActive(false);
-            MapSelectPanel.SetActive(true);
+            MapSelectPanel.SetActive(false);
+            RoomPanel.SetActive(true);
         }
     }
 
@@ -147,15 +154,21 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public void OnClickSelectMap()
     {
-        PhotonNetwork.CreateRoom(createInput.text, new RoomOptions() { BroadcastPropsChangeToAll = true });
-        CreateAndJoinPanel.SetActive(false);
         MapSelectPanel.SetActive(false);
-        RoomPanel.SetActive(true);
-        mapName= mapNames[mapIndex];
+        startButton.SetActive(true);
+        mapSelectEnableButton.SetActive(true);
     }
 
     public void UpdateMapImage()
     {
         mapImage.sprite = maps[mapIndex];
+        mapName = mapNames[mapIndex];
+    }
+
+    public void OnMapEnableClick()
+    {
+        mapSelectEnableButton.SetActive(false);
+        startButton.SetActive(false);
+        MapSelectPanel.SetActive(true);
     }
 }
