@@ -29,6 +29,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     // map select objects
     public Image mapImage;
+    public Image smallMapImage;
     public Sprite[] maps;
     public string[] mapNames;
     public GameObject rightArrowButton;
@@ -157,11 +158,13 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         MapSelectPanel.SetActive(false);
         startButton.SetActive(true);
         mapSelectEnableButton.SetActive(true);
+        smallMapImage.gameObject.SetActive(true);
     }
 
     public void UpdateMapImage()
     {
         mapImage.sprite = maps[mapIndex];
+        smallMapImage.sprite = maps[mapIndex];
         mapName = mapNames[mapIndex];
     }
 
@@ -170,5 +173,6 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         mapSelectEnableButton.SetActive(false);
         startButton.SetActive(false);
         MapSelectPanel.SetActive(true);
+        smallMapImage.gameObject.SetActive(false);
     }
 }
