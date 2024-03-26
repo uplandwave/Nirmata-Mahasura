@@ -1642,15 +1642,19 @@ MonoBehaviour:
   mapImage: {fileID: 1608484135}
   smallMapImage: {fileID: 2096262407}
   maps:
-  - {fileID: 21300000, guid: 0f9739fd3e9106141b74a89ca4fffb05, type: 3}
-  - {fileID: 21300000, guid: f7cb299307f69f04fad9d63c75dadaac, type: 3}
-  - {fileID: 21300000, guid: ec5a3b64c75718246a2b6f7cdc29014d, type: 3}
-  - {fileID: 21300000, guid: 894d19df82a3e5b4a872422a0f747bc4, type: 3}
+  - {fileID: 21300000, guid: f835f9ed44ebc784ea4e1a0503e0b775, type: 3}
+  - {fileID: 21300000, guid: 32e5e6af9d5c7ad4cb10f26094c3d0de, type: 3}
+  - {fileID: 21300000, guid: dd5d38d6a041b99489bfa6dedccb5e25, type: 3}
+  - {fileID: 21300000, guid: 8d7fb254c7898c444a8fcb593b7234cf, type: 3}
+  - {fileID: 21300000, guid: 39611280dacbfa948945f7191239159a, type: 3}
+  - {fileID: 21300000, guid: 54691e7a662d2a04898a9803e1914908, type: 3}
   mapNames:
   - Cave
-  - DK
-  - Nirmata
-  - NY
+  - DonkeyKong
+  - Earth
+  - Gold
+  - NewYork
+  - Nirmata-Hidden
   rightArrowButton: {fileID: 322832070}
   leftArrowButton: {fileID: 1739757185}
   selectButton: {fileID: 828978867}
