@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 3869723392580014570}
   - component: {fileID: 441768335551829790}
   - component: {fileID: -7824452361197005197}
+  - component: {fileID: 90127862370406486}
   m_Layer: 0
   m_Name: GreenSoldier
   m_TagString: Untagged
@@ -409,6 +410,18 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &90127862370406486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447304295446701198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309110d333b58ae4e9adc5457df7528c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8559107429336339484
 GameObject:
   m_ObjectHideFlags: 0

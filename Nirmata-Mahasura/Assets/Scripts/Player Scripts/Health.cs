@@ -1,12 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviourPunCallbacks, IPunObservable
 {
     public Animator animator;
     public int maxHealth = 100;
     int currentHealth;
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(currentHealth);
+        }
+        else
+        {
+            currentHealth = (int)stream.ReceiveNext();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

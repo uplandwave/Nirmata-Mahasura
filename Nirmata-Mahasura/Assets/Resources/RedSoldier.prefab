@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5978259946051777914}
   - component: {fileID: 311887655469577531}
   - component: {fileID: 1585880619942279065}
+  - component: {fileID: 3239720737193870337}
   m_Layer: 0
   m_Name: RedSoldier
   m_TagString: Untagged
@@ -349,6 +350,18 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &3239720737193870337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259299618365102760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309110d333b58ae4e9adc5457df7528c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1808971787800626667
 GameObject:
   m_ObjectHideFlags: 0

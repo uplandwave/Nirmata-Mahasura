@@ -5,18 +5,21 @@ using Photon.Pun;
 
 public class Camera_Controller : MonoBehaviour
 {
-    PhotonView view;
-
-    [SerializeField] private Transform player;
-
-    public void Start()
-    {
-        view = GetComponent<PhotonView>();
-    }
-
-    // Update is called once per frame
+    private Transform target;
+    public Vector3 offset = new Vector3(0f,0f,-10f);
+  
     void Update()
     {
-        transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+        FindPlayer();
+        transform.LookAt(target);
+        transform.position = target.position + offset;
+        transform.rotation = Quaternion.Euler(Vector3.zero);
+    }
+
+    void FindPlayer()
+    {
+        GameObject findPlayer;
+        findPlayer = GameObject.FindGameObjectWithTag("Player");     
+        target = findPlayer.transform;
     }
 }
