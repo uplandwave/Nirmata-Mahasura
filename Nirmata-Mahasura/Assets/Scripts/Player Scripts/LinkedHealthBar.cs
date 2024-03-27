@@ -11,14 +11,4 @@ public class LinkedHealthBar : MonoBehaviour
     {
         slider.value = currentValue / maxValue;
     }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
