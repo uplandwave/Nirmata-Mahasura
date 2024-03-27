@@ -35,8 +35,9 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public GameObject rightArrowButton;
     public GameObject leftArrowButton;
     public GameObject selectButton;
+    ExitGames.Client.Photon.Hashtable mapProperties = new ExitGames.Client.Photon.Hashtable();
 
-    public int mapIndex = 0;
+    public int mapIndex;
     public string mapName;
 
     private void Start()
@@ -44,6 +45,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         CreateAndJoinPanel.SetActive(true);
         RoomPanel.SetActive(false);
         MapSelectPanel.SetActive(false);
+        mapIndex = 0;
+        mapProperties["mapIndex"] = mapIndex;
         UpdateMapImage();
     }
 
@@ -159,6 +162,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         startButton.SetActive(true);
         mapSelectEnableButton.SetActive(true);
         smallMapImage.gameObject.SetActive(true);
+        mapProperties["mapIndex"] = mapIndex;
     }
 
     public void UpdateMapImage()
@@ -174,5 +178,14 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         startButton.SetActive(false);
         MapSelectPanel.SetActive(true);
         smallMapImage.gameObject.SetActive(false);
+    }
+
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+    {
+        if (propertiesThatChanged.ContainsKey("mapIndex"))
+        {
+            mapIndex = (int)propertiesThatChanged["mapIndex"];
+            UpdateMapImage();
+        }
     }
 }
