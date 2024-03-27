@@ -6,9 +6,9 @@ public class Health : MonoBehaviour
 {
     public Animator animator;
     public float maxHealth = 100;
-    float currentHealth;
+    public float currentHealth;
     // Start is called before the first frame update
-    [SerializeField] LinkedHealthBar healthBar;
+    [SerializeField] public LinkedHealthBar healthBar;
     void Awake()
     {
         healthBar = GetComponentInChildren<LinkedHealthBar>();
@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.UpdateHealthBar(healthBar, maxHealth);
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     public void TakeDamage(int damage)
