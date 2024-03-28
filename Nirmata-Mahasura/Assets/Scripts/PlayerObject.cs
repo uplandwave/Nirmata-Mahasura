@@ -24,7 +24,14 @@ public class PlayerObject : MonoBehaviourPunCallbacks
     private void Start()
     {
         backgroundImage = GetComponent<Image>();
-        playerProperties["playerAvatar"] = 0;
+        if (!PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("playerAvatar"))
+        {
+            playerProperties["playerAvatar"] = 0;
+        }
+        else
+        {
+            playerProperties["playerAvatar"] = (int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"];
+        }
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }
 
