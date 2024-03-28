@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Settings/Scenes/URP2DSceneTemplate.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Gold.unity
+    guid: 58a249ffda188a34abc3c7f7282bbbbc
   - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
@@ -20,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Earth.unity
     guid: 8279916608153704eaa1e898f0a3f86f
+  - enabled: 1
+    path: Assets/Scenes/NewYork.unity
+    guid: 842962605dd94534ead504bdacc1cc08
+  - enabled: 1
+    path: Assets/Scenes/DonkyKong.unity
+    guid: 7bdba4348281c1d46a09a1582d37ed96
+  - enabled: 1
+    path: Assets/Scenes/Nirmata-Hidden.unity
+    guid: 1f207dfb9d3f96443acd6ab2f07a932e
+  - enabled: 1
+    path: Assets/Scenes/Cave.unity
+    guid: 08d1d434df607fe4e8ac4ee6c75bc30c
   m_configObjects: {}
