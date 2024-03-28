@@ -21,10 +21,9 @@ GameObject:
   - component: {fileID: -2539939691243158187}
   - component: {fileID: 6828532557507511932}
   - component: {fileID: 53765402663545333}
-  - component: {fileID: 4857982672101944227}
   m_Layer: 0
   m_Name: BlackSoldier
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +126,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5566425050407043663}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -365,32 +364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309110d333b58ae4e9adc5457df7528c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &4857982672101944227
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5566425050407043663}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.12979436, y: 0.04461682}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
-    newSize: {x: 3, y: 3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.71237326, y: 1.8561866}
-  m_EdgeRadius: 0
 --- !u!1 &6482411213854777772
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6607205230769885197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.221, y: -0.877, z: 0}
+  m_LocalPosition: {x: -0.23, y: -0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

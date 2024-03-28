@@ -5,11 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bannana
-<<<<<<< HEAD
-  - Enemy
-  - melon
-=======
->>>>>>> 1f19654b7c05129dd9fb05abeca3886a5040423b
   layers:
   - Default
   - TransparentFX
@@ -21,8 +16,8 @@ TagManager:
   - Player
   - 
   - 
-  - Items
-  - Enemy
+  - 
+  - 
   - 
   - 
   - 
