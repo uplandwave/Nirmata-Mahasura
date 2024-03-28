@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6687985973301827396}
   - component: {fileID: 3195381794264971049}
   - component: {fileID: -404001835290716556}
-  - component: {fileID: 5591439155148193492}
   - component: {fileID: 1574307016132958503}
   - component: {fileID: 956458577804002714}
   - component: {fileID: 8269902849159975013}
@@ -21,6 +20,7 @@ GameObject:
   - component: {fileID: 9027782119745309293}
   - component: {fileID: 5602159818827542397}
   - component: {fileID: 3064817879538581048}
+  - component: {fileID: 4195929208482894950}
   m_Layer: 0
   m_Name: YellowSoldier
   m_TagString: Untagged
@@ -119,44 +119,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!60 &5591439155148193492
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556294368671365428}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
-    newSize: {x: 3, y: 3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.4905548, y: 0.4003601}
-      - {x: 0.30041885, y: 1.0100327}
-      - {x: -0.44239235, y: 1.021862}
-      - {x: -0.4609127, y: 0.56404877}
-      - {x: -0.7636757, y: 0.46936417}
-      - {x: -0.7566891, y: -0.19394302}
-      - {x: -0.60933876, y: -0.36584473}
-      - {x: -0.5625, y: -0.88503647}
-      - {x: 0.28369904, y: -0.9086952}
-      - {x: 0.31404877, y: -0.8107033}
-      - {x: 0.24951553, y: -0.16030884}
-      - {x: 0.80556107, y: 0.00024795532}
-      - {x: 0.7937317, y: 0.33771133}
 --- !u!50 &1574307016132958503
 Rigidbody2D:
   serializedVersion: 4
@@ -281,6 +243,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 8454073184287219706}
   - {fileID: 9027782119745309293}
   - {fileID: 5602159818827542397}
   sceneViewId: 0
@@ -361,6 +324,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309110d333b58ae4e9adc5457df7528c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &4195929208482894950
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556294368671365428}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 95c6585a1c9130546871576f9c6615bd, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.14718437, y: 0.06833649}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 3, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0865898, y: 1.8330307}
+  m_EdgeRadius: 0
 --- !u!1 &950027161352179320
 GameObject:
   m_ObjectHideFlags: 0
