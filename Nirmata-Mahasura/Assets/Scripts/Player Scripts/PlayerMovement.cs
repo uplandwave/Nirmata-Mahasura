@@ -35,16 +35,16 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("IsJumping", true);
             }
 
-            if (Input.GetButtonDown("Crouch"))
-            {
-                crouch = true;
-                animator.SetBool("IsCrouching", true);
-            }
-            else
-            {
-                crouch = false;
-                animator.SetBool("IsCrouching", false);
-            }
+            //if (Input.GetButtonDown("Crouch"))
+            //{
+            //    crouch = true;
+            //    animator.SetBool("IsCrouching", true);
+            //}
+            //else
+            //{
+            //    crouch = false;
+            //    animator.SetBool("IsCrouching", false);
+            //}
         }
     }
 

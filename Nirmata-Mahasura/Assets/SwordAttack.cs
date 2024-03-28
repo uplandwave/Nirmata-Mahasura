@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class SwordAttack : MonoBehaviour
 {
@@ -20,9 +21,10 @@ public class SwordAttack : MonoBehaviour
     {
         if (view.IsMine && Input.GetButtonDown("Fire1"))
         {
-            Attack();
+            view.RPC("Attack", RpcTarget.All);
         }
     }
+    [PunRPC]
     void Attack()
     {
         animator.SetTrigger("Attack");
@@ -36,7 +38,7 @@ public class SwordAttack : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
             return;

@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 848769629918479944}
   - component: {fileID: -2539939691243158187}
   - component: {fileID: 6828532557507511932}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BlackSoldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,6 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2023166939062340779}
   maxHealth: 100
+  currentHealth: 0
 --- !u!114 &848769629918479944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2340394984535217943}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ceiling Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3335728591685105123}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6044608554775186774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
