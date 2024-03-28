@@ -49,4 +49,9 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
         //GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 1f);
     }
+    
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+    }
 }
