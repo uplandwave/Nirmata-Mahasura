@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1815804735429038045}
   - component: {fileID: 367407014669188011}
   - component: {fileID: 6168876320553139971}
-  - component: {fileID: 5570991782910087280}
+  - component: {fileID: 7972409039542581903}
   - component: {fileID: 6816731550119402044}
   - component: {fileID: -9018106448359205692}
   - component: {fileID: 1222324478158177394}
@@ -140,8 +140,8 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &5570991782910087280
-PolygonCollider2D:
+--- !u!61 &7972409039542581903
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -149,11 +149,11 @@ PolygonCollider2D:
   m_GameObject: {fileID: 259299618365102760}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 95c6585a1c9130546871576f9c6615bd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.15708542, y: 0.05711937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -163,22 +163,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.30104828, y: 0.38177872}
-      - {x: 0.4537239, y: 0.63440704}
-      - {x: 0.24249268, y: 1.0483437}
-      - {x: -0.43076324, y: 1.0156021}
-      - {x: -0.45962524, y: 0.5867691}
-      - {x: -0.8258858, y: 0.47689056}
-      - {x: -0.79987717, y: -0.26197433}
-      - {x: -0.5639458, y: -0.36527634}
-      - {x: -0.5133858, y: -0.93971634}
-      - {x: 0.30653, y: -0.9151573}
-      - {x: 0.34967804, y: -0.88539886}
-      - {x: 0.27007294, y: -0.17773819}
-      - {x: 0.8221359, y: 0.020896912}
-      - {x: 0.8221321, y: 0.34967422}
+  serializedVersion: 2
+  m_Size: {x: 1.0864334, y: 1.8575706}
+  m_EdgeRadius: 0
 --- !u!114 &6816731550119402044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +269,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 5559384177517583598}
   - {fileID: 311887655469577531}
   - {fileID: 1585880619942279065}
   sceneViewId: 0

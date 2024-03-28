@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 7497206907310117806}
   - component: {fileID: 6590662841163778075}
   - component: {fileID: -4966890029680344558}
-  - component: {fileID: 6537155273922675340}
+  - component: {fileID: 3110259124562498997}
   - component: {fileID: 3464512993777801921}
   - component: {fileID: 7215312380910193602}
   - component: {fileID: -8645752572868790008}
@@ -176,13 +176,13 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 95c6585a1c9130546871576f9c6615bd, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &6537155273922675340
-PolygonCollider2D:
+--- !u!61 &3110259124562498997
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -194,7 +194,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.15060234, y: 0.04791832}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -204,20 +204,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.2137909, y: 1.1126823}
-      - {x: -0.28861237, y: 1.1251526}
-      - {x: -0.48002625, y: 0.8876076}
-      - {x: -0.4759636, y: 0.57557297}
-      - {x: -0.766552, y: 0.506382}
-      - {x: -0.8268738, y: -0.22898102}
-      - {x: -0.6256027, y: -0.37590027}
-      - {x: -0.55002975, y: -0.9128609}
-      - {x: 0.37514877, y: -0.9003906}
-      - {x: 0.37544632, y: -0.18945312}
-      - {x: 0.8381958, y: 0.011417389}
-      - {x: 0.7758446, y: 0.5625}
+  serializedVersion: 2
+  m_Size: {x: 1.192791, y: 1.9184074}
+  m_EdgeRadius: 0
 --- !u!95 &3464512993777801921
 Animator:
   serializedVersion: 5
@@ -342,6 +331,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: -248109642939596587}
   - {fileID: 441768335551829790}
   - {fileID: -7824452361197005197}
   sceneViewId: 0
