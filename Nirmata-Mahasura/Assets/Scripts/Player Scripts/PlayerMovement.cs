@@ -60,8 +60,45 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
+        if (view.IsMine)
+        {
+            // Move our character
+            controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+            jump = false;
+
+            // Synchronize movement over the network
+            view.RPC("SyncMovement", RpcTarget.Others, transform.position, horizontalMove, jump);
+        }
+    }
+    [PunRPC]
+    void SyncMovement(Vector3 newPosition, float newHorizontalMove, bool newJump)
+    {
+        // Update the position, horizontal move, and jump of the player on other clients
+        transform.position = newPosition;
+        horizontalMove = newHorizontalMove;
+        jump = newJump;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(horizontalMove);
+            stream.SendNext(jump);
+        }
+        else
+        {
+            Vector3 newPosition = (Vector3)stream.ReceiveNext();
+            float newHorizontalMove = (float)stream.ReceiveNext();
+            bool newJump = (bool)stream.ReceiveNext();
+
+            // Update the position, horizontal move, and jump of the player on the local client
+            transform.position = newPosition;
+            horizontalMove = newHorizontalMove;
+            jump = newJump;
+        }
     }
 }

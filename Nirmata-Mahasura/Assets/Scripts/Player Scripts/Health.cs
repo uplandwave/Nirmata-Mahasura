@@ -23,18 +23,41 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
         else
         {
             currentHealth = (int)stream.ReceiveNext();
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        if (photonView.IsMine) // Only initialize health bar for the local player
+        {
+            currentHealth = maxHealth;
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+            StartCoroutine(SendHealthUpdates());
+        }
+    }
+
+    IEnumerator SendHealthUpdates()
+    {
+        while (true)
+        {
+            photonView.RPC("UpdateHealthRPC", RpcTarget.Others, currentHealth);
+            yield return new WaitForSeconds(0.1f); // Adjust the interval based on your preference
+        }
+    }
+
+    [PunRPC]
+    void UpdateHealthRPC(int health)
+    {
+        currentHealth = health;
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     public void TakeDamage(int damage)
     {
+        if (!photonView.IsMine) return;
+
         currentHealth -= damage;
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
 
@@ -47,9 +70,11 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
-    async void Die()
+    void Die()
     {
         //Debug.Log("Enemy Died!");
+
+        if (!photonView.IsMine) return;
 
         animator.SetBool("IsDead", true);
 
