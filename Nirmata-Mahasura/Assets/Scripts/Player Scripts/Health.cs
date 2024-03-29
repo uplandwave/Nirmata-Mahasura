@@ -8,10 +8,12 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
     public Animator animator;
     public int maxHealth = 100;
     int currentHealth;
+    public PhotonView photonView;
     [SerializeField] public HealthBar healthBar;
     public void Awake()
     {
         healthBar = GetComponentInChildren<HealthBar>();
+        photonView = GetComponent<PhotonView>();
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -38,12 +40,23 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
+    void Die()
+        {
+            //Debug.Log("Enemy Died!");
+            animator.SetBool("IsDead", true);
+
+
+
+            //GetComponent<Collider2D>().enabled = false;
+            Destroy(gameObject, 1f);
+        }
+
     IEnumerator SendHealthUpdates()
     {
         while (true)
         {
             photonView.RPC("UpdateHealthRPC", RpcTarget.Others, currentHealth);
-            yield return new WaitForSeconds(0.1f); // Adjust the interval based on your preference
+            yield return new WaitForSeconds(2f); // Adjust the interval based on your preference
         }
     }
 
@@ -51,7 +64,14 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
     void UpdateHealthRPC(int health)
     {
         currentHealth = health;
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        if (currentHealth > 0)
+        {
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        }
+        else
+        {
+          Die();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -70,15 +90,5 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
-    void Die()
-    {
-        //Debug.Log("Enemy Died!");
-
-        if (!photonView.IsMine) return;
-
-        animator.SetBool("IsDead", true);
-
-        //GetComponent<Collider2D>().enabled = false;
-        Destroy(gameObject, 1f);
-    }
+    
 }
