@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: -404001835290716556}
   maxHealth: 100
+  photonView: {fileID: 0}
   healthBar: {fileID: 0}
 --- !u!114 &5863043080593871947
 MonoBehaviour:
@@ -317,7 +318,7 @@ MonoBehaviour:
   m_RotationModel:
     SynchronizeEnabled: 1
     InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 1500
+    InterpolateRotateTowardsSpeed: 100000
     InterpolateLerpSpeed: 5
   m_ScaleModel:
     SynchronizeEnabled: 0
@@ -346,7 +347,7 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: IsJumping
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: IsDead
   - Type: 9
     SynchronizeType: 1
