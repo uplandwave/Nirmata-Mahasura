@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4487687984275807812}
   - component: {fileID: -7107249292388085753}
   - component: {fileID: 6710337805364020639}
-  - component: {fileID: 8288317543948728809}
+  - component: {fileID: 3270214152261786654}
   - component: {fileID: 6506151426819797339}
   - component: {fileID: 6739192062871846842}
   - component: {fileID: 1141989018955028136}
@@ -149,8 +149,8 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &8288317543948728809
-PolygonCollider2D:
+--- !u!61 &3270214152261786654
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,11 +158,11 @@ PolygonCollider2D:
   m_GameObject: {fileID: 2423136826368070495}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 95c6585a1c9130546871576f9c6615bd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00000023841858, y: -0.7282879}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -172,25 +172,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.55111563, y: 0.6729}
-      - {x: 0.13241176, y: 0.70223314}
-      - {x: 0.25522423, y: 0.13245773}
-      - {x: -0.5307121, y: 0.12709999}
-      - {x: -0.55285263, y: -0.42544365}
-      - {x: -0.7692776, y: -0.4140587}
-      - {x: -0.8563566, y: -0.56297493}
-      - {x: -0.86312485, y: -1.0022312}
-      - {x: -0.64092445, y: -1.3717947}
-      - {x: -0.47640246, y: -1.3685263}
-      - {x: -0.45477486, y: -1.5918217}
-      - {x: 0.6573912, y: -1.5933932}
-      - {x: 0.6444788, y: -0.9725523}
-      - {x: 0.8195715, y: -0.9625591}
-      - {x: 0.813015, y: -0.75616646}
-      - {x: 0.6373997, y: -0.64782524}
-      - {x: 0.65792084, y: 0.30451775}
+  serializedVersion: 2
+  m_Size: {x: 0.97705793, y: 1.6717325}
+  m_EdgeRadius: 0
 --- !u!95 &6506151426819797339
 Animator:
   serializedVersion: 5
