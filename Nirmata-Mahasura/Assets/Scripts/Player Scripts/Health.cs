@@ -53,7 +53,7 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
     {
         while (true)
         {
-            photonView.RPC("UpdateHealthRPC", RpcTarget.Others, currentHealth);
+            photonView.RPC("UpdateHealthRPC", RpcTarget.All, currentHealth);
             yield return new WaitForSeconds(2f); // Adjust the interval based on your preference
         }
     }

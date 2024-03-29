@@ -314,8 +314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8475562900293742946}
   maxHealth: 100
-  photonView: {fileID: 0}
   healthBar: {fileID: 0}
+  photonView: {fileID: 0}
 --- !u!114 &2943886844063150259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_RotationModel:
     SynchronizeEnabled: 1
     InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 1500
+    InterpolateRotateTowardsSpeed: 100000
     InterpolateLerpSpeed: 5
   m_ScaleModel:
     SynchronizeEnabled: 0
