@@ -3,36 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class SwordAttack : MonoBehaviour
+public class SwordAttack : MonoBehaviourPunCallbacks
 {
     public Animator animator;
     public PhotonView view;
 
     public Transform attackPoint;
-    public float attackRange = .05f;
+    public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
     public int attackDamage = 40;
 
-
     // Update is called once per frame
     void Update()
     {
-        if (view.IsMine && Input.GetButtonDown("Fire1"))
+        if (PhotonNetwork.IsConnected && photonView.IsMine && Input.GetButtonDown("Fire1"))
         {
+            // Trigger attack animation locally
             animator.SetTrigger("Attack");
-            Invoke("Attack", 1);
+
+            // Call RPC to perform attack on all clients
+            photonView.RPC("PerformAttack", RpcTarget.All);
+        }
+        else if (!PhotonNetwork.IsConnected && Input.GetButtonDown("Fire1")) // Check if offline
+        {
+            // Trigger attack animation locally
+            animator.SetTrigger("Attack");
+
+            // Perform attack offline
+            PerformAttack();
         }
     }
-    void Attack()
-    {
 
+    [PunRPC]
+    void PerformAttack()
+    {
+        // Perform attack on all clients
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            //Debug.Log("We Hit " + enemy.name);
-            enemy.GetComponent<Health>().TakeDamage(attackDamage);
+            // Check if the object has a PhotonView attached
+            if (enemy.TryGetComponent(out PhotonView enemyPhotonView))
+            {
+                // Call TakeDamage RPC on the enemy object
+                enemyPhotonView.RPC("TakeDamage", RpcTarget.All, attackDamage);
+            }
         }
     }
 
@@ -42,5 +58,4 @@ public class SwordAttack : MonoBehaviour
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
 }
