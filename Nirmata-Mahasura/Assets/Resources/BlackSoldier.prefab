@@ -431,6 +431,7 @@ MonoBehaviour:
   animator: {fileID: 2023166939062340779}
   maxHealth: 100
   healthBar: {fileID: 0}
+  photonView: {fileID: 0}
 --- !u!114 &6003262561213296256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,7 +528,7 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: Hurt
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: IsDead
   m_SynchronizeLayers:
   - SynchronizeType: 0

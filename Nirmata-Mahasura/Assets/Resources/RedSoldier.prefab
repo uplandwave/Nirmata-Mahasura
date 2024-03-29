@@ -253,6 +253,7 @@ MonoBehaviour:
   animator: {fileID: 367407014669188011}
   maxHealth: 100
   healthBar: {fileID: 0}
+  photonView: {fileID: 0}
 --- !u!114 &105009181250324652
 MonoBehaviour:
   m_ObjectHideFlags: 0
