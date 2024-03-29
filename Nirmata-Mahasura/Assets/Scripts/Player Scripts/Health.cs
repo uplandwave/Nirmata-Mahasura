@@ -82,10 +82,10 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
         animator.SetTrigger("Hurt");
 
 
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        // if (currentHealth <= 0)
+        // {
+        //     Die();
+        // }
     }
    
 
