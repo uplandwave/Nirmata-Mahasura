@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 367407014669188011}
   maxHealth: 100
+  photonView: {fileID: 0}
   healthBar: {fileID: 0}
   photonView: {fileID: 0}
 --- !u!114 &105009181250324652
@@ -347,7 +348,7 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: IsJumping
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: IsDead
   - Type: 9
     SynchronizeType: 1

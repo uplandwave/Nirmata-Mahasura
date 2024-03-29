@@ -337,6 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7683156973317557388}
   maxHealth: 100
+  photonView: {fileID: 0}
   healthBar: {fileID: 7739109127588664972}
   photonView: {fileID: 0}
 --- !u!114 &7739109127588664972
