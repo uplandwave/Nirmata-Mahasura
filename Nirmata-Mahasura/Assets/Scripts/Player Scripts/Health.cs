@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.Demo.Cockpit;
 
 public class Health : MonoBehaviourPunCallbacks, IPunObservable
 {
     public Animator animator;
     public int maxHealth = 100;
     int currentHealth;
-    public PhotonView photonView;
     [SerializeField] public HealthBar healthBar;
+    public PhotonView photonView;
     public void Awake()
     {
         healthBar = GetComponentInChildren<HealthBar>();
@@ -39,18 +40,15 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
             StartCoroutine(SendHealthUpdates());
         }
     }
-
     void Die()
-        {
-            //Debug.Log("Enemy Died!");
-            animator.SetBool("IsDead", true);
+    {
+        //Debug.Log("Enemy Died!");
 
+        animator.SetBool("IsDead", true);
 
-
-            //GetComponent<Collider2D>().enabled = false;
-            Destroy(gameObject, 1f);
-        }
-
+        //GetComponent<Collider2D>().enabled = false;
+        Destroy(gameObject, 1f);
+    }
     IEnumerator SendHealthUpdates()
     {
         while (true)
@@ -65,12 +63,12 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
     {
         currentHealth = health;
         if (currentHealth > 0)
-        {
+        {   
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
         else
         {
-          Die();
+            Die();
         }
     }
 
@@ -89,6 +87,6 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
         //     Die();
         // }
     }
+   
 
-    
 }

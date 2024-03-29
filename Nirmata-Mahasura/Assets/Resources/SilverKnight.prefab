@@ -290,6 +290,7 @@ MonoBehaviour:
   maxHealth: 100
   photonView: {fileID: 0}
   healthBar: {fileID: 0}
+  photonView: {fileID: 0}
 --- !u!114 &-6201089327686147186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +386,9 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: Attack
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsDead
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0

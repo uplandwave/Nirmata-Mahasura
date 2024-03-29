@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEditor.PackageManager;
 
 public class SwordAttack : MonoBehaviourPunCallbacks
 {
@@ -43,6 +44,7 @@ public class SwordAttack : MonoBehaviourPunCallbacks
 
         foreach (Collider2D enemy in hitEnemies)
         {
+            // Check if the object has a PhotonView attached
             Health hitEnemy = enemy.GetComponent<Health>();
             if (hitEnemy != null)
             {

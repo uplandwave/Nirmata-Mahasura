@@ -432,6 +432,7 @@ MonoBehaviour:
   maxHealth: 100
   photonView: {fileID: 0}
   healthBar: {fileID: 0}
+  photonView: {fileID: 0}
 --- !u!114 &6003262561213296256
 MonoBehaviour:
   m_ObjectHideFlags: 0
