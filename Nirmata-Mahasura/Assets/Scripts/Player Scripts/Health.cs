@@ -8,6 +8,11 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
     public Animator animator;
     public int maxHealth = 100;
     int currentHealth;
+    [SerializeField] public HealthBar healthBar;
+    public void Awake()
+    {
+        healthBar = GetComponentInChildren<HealthBar>();
+    }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -25,11 +30,13 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
 
         animator.SetTrigger("Hurt");
 
