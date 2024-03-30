@@ -2,12 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.Demo.Cockpit;
 
 public class Health : MonoBehaviourPunCallbacks, IPunObservable
 {
     public Animator animator;
     public int maxHealth = 100;
     int currentHealth;
+    [SerializeField] public HealthBar healthBar;
+    public PhotonView photonView;
+    public void Awake()
+    {
+        healthBar = GetComponentInChildren<HealthBar>();
+        photonView = GetComponent<PhotonView>();
+    }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -18,29 +26,21 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
         else
         {
             currentHealth = (int)stream.ReceiveNext();
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-
-        animator.SetTrigger("Hurt");
-
-
-        if (currentHealth <= 0)
+        if (photonView.IsMine) // Only initialize health bar for the local player
         {
-            Die();
+            currentHealth = maxHealth;
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+            StartCoroutine(SendHealthUpdates());
         }
     }
-
-    async void Die()
+    void Die()
     {
         //Debug.Log("Enemy Died!");
 
@@ -49,4 +49,44 @@ public class Health : MonoBehaviourPunCallbacks, IPunObservable
         //GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 1f);
     }
+    IEnumerator SendHealthUpdates()
+    {
+        while (true)
+        {
+            photonView.RPC("UpdateHealthRPC", RpcTarget.All, currentHealth);
+            yield return new WaitForSeconds(2f); // Adjust the interval based on your preference
+        }
+    }
+
+    [PunRPC]
+    void UpdateHealthRPC(int health)
+    {
+        currentHealth = health;
+        if (currentHealth > 0)
+        {   
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        }
+        else
+        {
+            Die();
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (!photonView.IsMine) return;
+
+        currentHealth -= damage;
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
+
+        animator.SetTrigger("Hurt");
+
+
+        // if (currentHealth <= 0)
+        // {
+        //     Die();
+        // }
+    }
+   
+
 }
