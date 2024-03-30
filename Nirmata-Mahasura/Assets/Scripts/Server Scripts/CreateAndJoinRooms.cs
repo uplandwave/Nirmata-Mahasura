@@ -24,6 +24,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public List<PlayerObject> playerObjects = new List<PlayerObject>();
     public PlayerObject playerObjectPrefab;
     public Transform playerObjectParent;
+    public Transform mainPlayerObjectParent;
     public GameObject startButton;
     public GameObject mapSelectEnableButton;
 
@@ -107,16 +108,21 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         playerObjects.Clear();
 
         foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
-        {
-            PlayerObject newPlayerObject = Instantiate(playerObjectPrefab, playerObjectParent);
-            newPlayerObject.SetPlayerName(player.Value);
-
+        { 
             if (player.Value.IsLocal)
             {
+                // instantiate the player object in the room panel
+                PlayerObject newPlayerObject = Instantiate(playerObjectPrefab, mainPlayerObjectParent);
+                newPlayerObject.SetPlayerName(player.Value);
                 newPlayerObject.ApplyLocalChanges();
+                playerObjects.Add(newPlayerObject);
             }
-
-            playerObjects.Add(newPlayerObject);
+            else
+            {
+                PlayerObject newPlayerObject = Instantiate(playerObjectPrefab, playerObjectParent);
+                newPlayerObject.SetPlayerName(player.Value);
+                playerObjects.Add(newPlayerObject);
+            }
         }
     }
 

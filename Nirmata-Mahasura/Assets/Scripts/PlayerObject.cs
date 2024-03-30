@@ -8,6 +8,8 @@ using TMPro;
 
 public class PlayerObject : MonoBehaviourPunCallbacks
 {
+    public Vector3 fullScale = new Vector3(1.3f, 1.3f, 1.3f);
+
     public TMP_Text PlayerName;
 
     Image backgroundImage;
@@ -47,6 +49,8 @@ public class PlayerObject : MonoBehaviourPunCallbacks
         // backgroundImage.color = highlightColor;
         rightArrowButton.SetActive(true);
         leftArrowButton.SetActive(true);
+        transform.localScale = fullScale;
+        transform.localPosition = new Vector2(0, 0);
     }
 
     public void OnClickLeftArrow()
