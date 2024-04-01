@@ -502,10 +502,10 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 192
   m_GroundCheck: {fileID: 6898661192555091517}
   m_CeilingCheck: {fileID: 2942102124121350875}
-  m_CrouchDisableCollider: {fileID: 0}
+  boxCollider: {fileID: 3110259124562498997}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -523,7 +523,19 @@ MonoBehaviour:
         m_CallState: 2
   OnCrouchEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -8645752572868790008}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnCrouching
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-8645752572868790008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,7 +580,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3464512993777801921}
   maxHealth: 100
-  photonView: {fileID: 0}
   healthBar: {fileID: 0}
   photonView: {fileID: 0}
 --- !u!114 &7466542684784063093

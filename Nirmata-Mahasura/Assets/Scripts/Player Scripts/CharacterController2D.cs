@@ -11,7 +11,13 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
-    [SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
+    [SerializeField] private BoxCollider2D boxCollider;                         // A collider that will be disabled when crouching
+
+    // New variables for crouching
+    private float standingHeight = 2f;
+    private float crouchingHeight = 1f;
+    private float standingOffsetY = 0f;
+    private float crouchingOffsetY = -0.5f;
 
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
@@ -42,6 +48,9 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+
+        if (OnCrouchEvent == null)
+            OnCrouchEvent = new BoolEvent();
     }
 
     private void FixedUpdate()
@@ -66,15 +75,20 @@ public class CharacterController2D : MonoBehaviour
 
     public void Move(float move, bool crouch, bool jump)
     {
+        //Debug.Log("Crouch: " + crouch);
+
         // If crouching, check to see if the character can stand up
         if (!crouch)
         {
             // If the character has a ceiling preventing them from standing up, keep them crouching
             if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
             {
+                //Debug.Log("crouch set to true");
                 crouch = true;
             }
         }
+
+        //Debug.Log("Was Crouching: " + m_wasCrouching);
 
         if (photonView.IsMine || !PhotonNetwork.IsConnected) 
         {
@@ -89,20 +103,26 @@ public class CharacterController2D : MonoBehaviour
                     if (!m_wasCrouching)
                     {
                         m_wasCrouching = true;
+                        OnCrouchEvent.Invoke(true);
                     }
 
                     // Reduce the speed by the crouchSpeed multiplier
                     move *= m_CrouchSpeed;
 
                     // Disable one of the colliders when crouching
+                    boxCollider.size = new Vector2(boxCollider.size.x, crouchingHeight);
+                    boxCollider.offset = new Vector2(boxCollider.offset.x, crouchingOffsetY);
                 }
                 else
                 {
                     // Enable the collider when not crouching
+                    boxCollider.size = new Vector2(boxCollider.size.x, standingHeight);
+                    boxCollider.offset = new Vector2(boxCollider.offset.x, standingOffsetY);
 
                     if (m_wasCrouching)
                     {
                         m_wasCrouching = false;
+                        OnCrouchEvent.Invoke(false);
                     }
                 }
 

@@ -33,17 +33,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 jump = true;
                 animator.SetBool("IsJumping", true);
+                //Debug.Log("Jump Pressed");
             }
 
             if (Input.GetButtonDown("Crouch"))
             {
                 crouch = true;
-                animator.SetBool("IsCrouching", true);
+                //Debug.Log("Crouch pressed");
+
             }
-            else
+            else if (Input.GetButtonUp("Crouch"))
             {
                 crouch = false;
-                animator.SetBool("IsCrouching", false);
+                //Debug.Log("Crouch released");
+         
             }
         }
     }
@@ -53,10 +56,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", false);
     }
 
-    //public void OnCrouching()
-    //{
-    //    animator.SetBool("IsCrouching", isCrouching);
-    //}
+    public void OnCrouching(bool isCrouching)
+    {
+        animator.SetBool("IsCrouching", isCrouching);
+    }
 
     void FixedUpdate()
     {

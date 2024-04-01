@@ -364,10 +364,12 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 192
   m_GroundCheck: {fileID: 3335728591685105123}
   m_CeilingCheck: {fileID: 2340394984535217943}
-  m_CrouchDisableCollider: {fileID: 0}
+  boxCollider: {fileID: 4723667113542713420}
+  standingHeight: 3.52
+  crouchingHeight: 2.51
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -385,7 +387,19 @@ MonoBehaviour:
         m_CallState: 2
   OnCrouchEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8560414131230784320}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnCrouching
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8560414131230784320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8745408567231078293}
   animator: {fileID: 2023166939062340779}
-  runSpeed: 150
+  runSpeed: 50
 --- !u!114 &6419586475897262559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +544,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 0
     Name: IsDead
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsCrouching
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
