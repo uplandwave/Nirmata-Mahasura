@@ -15049,7 +15049,14 @@ MonoBehaviour:
   - {fileID: 259299618365102760, guid: 2a56bcc3001b8d841964184d335cb2e1, type: 3}
   - {fileID: 556294368671365428, guid: 273a548de5b5cb64ea7ed6a78eadb2f0, type: 3}
   - {fileID: 2423136826368070495, guid: ea87ec3829583464d850d37db04b09b9, type: 3}
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 1374473376}
+  - {fileID: 222079327}
+  - {fileID: 373513152}
+  - {fileID: 781951479}
+  - {fileID: 323614880}
+  - {fileID: 730205251}
+  - {fileID: 1725683563}
 --- !u!4 &1883110024
 Transform:
   m_ObjectHideFlags: 0

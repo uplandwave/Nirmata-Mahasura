@@ -296,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 5670255618576966357}
   animator: {fileID: 8475562900293742946}
-  runSpeed: 150
+  runSpeed: 50
 --- !u!114 &7976937789529941476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +426,9 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: Hurt
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsCrouching
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
