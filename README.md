@@ -40,7 +40,7 @@ the input assets such as forms buttons text inputs and fonts were made using sim
 # Future Work
 
 {Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
+* Design: Add layered backgrounds and animations to the backgrounds, add button press animations
 * Item 2
 * Item 3
 
