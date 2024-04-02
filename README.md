@@ -91,7 +91,9 @@ void Start()
 # Collaborators
 
 Uplandwave - [Github](https://github.com/uplandwave)
+
 Samuel Mickelsen - [Github](https://github.com/Sammickelsen)
+
 James Call
 
 # Useful Websites
