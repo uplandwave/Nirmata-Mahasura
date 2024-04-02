@@ -73,6 +73,8 @@ void Start()
 
 James Call
 
+Samuel Mickelsen - [Github](https://github.com/Sammickelsen)
+
 # Useful Websites
 
 {Make a list of websites that you found helpful in this project}
