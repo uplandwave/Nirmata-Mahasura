@@ -8,6 +8,25 @@ The design of the game utilized several asset sets, character asset sets, object
 The input assets such as forms, buttons, text inputs and fonts were made using simplePixelart asset set which is an asset of sprites and fonts that matched the design aspect of our game. In addition to the assets, some design aspects were done inside the unity editor such as color, gradients, and opacity. 
 
 ## Maps
+Cave
+![Cave](./images/Cave.png)
+
+Nirmata-Hidden
+![Nirmata](./images/Nirmata.png)
+
+DonkyKong 
+![DK](./images/DK.png)
+
+NewYork
+![NY](./images/NewYork.png)
+
+Earth
+![Earth](./images/Earth.png)
+
+Gold
+![Gold](./images/Gold.png)
+
+All maps were created specialy for this project using free assets from the Unity Asset Store. 
 
 ## Animations
 
@@ -71,20 +90,21 @@ void Start()
 
 # Collaborators
 
-James Call
+Uplandwave - [Github](https://github.com/uplandwave)
 
 Samuel Mickelsen - [Github](https://github.com/Sammickelsen)
 
+James Call
+
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-* [Web Site Name](http://url.link.goes.here)
+* [Unity Asset Store](https://assetstore.unity.com/)
 * [Web Site Name](http://url.link.goes.here)
 
 # Future Work
 
 {Make a list of things that you need to fix, improve, and add in the future.}
 * Design: Add layered backgrounds and animations to the backgrounds, add button press animations
-* Item 2
+* Maps: Fix all tearing. Two way colliders.
 * Item 3
 
