@@ -29,7 +29,7 @@ the input assets such as forms buttons text inputs and fonts were made using sim
 
 # Collaborators
 
-{Provide a list of everyone on your team}
+James Call
 
 # Useful Websites
 
