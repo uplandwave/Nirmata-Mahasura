@@ -45,6 +45,26 @@ Sprites for animations are free assets and were taken from itch.io. The animatio
 
 ## Health and Damage
 
+### Health Bar
+
+Tutorial Video
+[Simple Health Bar](https://youtu.be/_lREXfAMUcE?si=X5_GZbss-xG3mH48)
+[How to Make the Health Bar Interactable with A Character's Health](https://youtu.be/0tDPxNB2JNs?si=GqMcURyH8-TU7vBO)
+
+In the HealthBar class, it only updates the health bar. You can call it in Health.cs file to display
+the health change anytime like when a character gets damage or healed.
+
+``` C#
+public class HealthBar : MonoBehaviour
+{
+    public Image healthBar;
+    public void UpdateHealthBar(float currentValue, float maxValue)
+    {
+        healthBar.fillAmount = currentValue / maxValue;
+    }
+}
+```
+
 ## Camera
 
 The Camera Script allows the Camera to act using different functions. Most importantly, the Camera will attach itself to the "Active" player. The active player will always be the player being controlled, so on each computer the active player will be different. Once there is no more active player, the camera will switch to a stagnant position overviewing the whole map. This allows players who have been defeated to see the rest of the living players until the game eventually ends.
@@ -106,6 +126,12 @@ void Start()
 Uplandwave - [Github](https://github.com/uplandwave)
 
 Samuel Mickelsen - [Github](https://github.com/Sammickelsen)
+
+Rai Katsuragawa - [Github](https://github.com/katsu-rai)
+
+Gilber Chen - [Github](https://github.com/ooioioogt)
+
+Kyle Guo - [Github](http://github.com/kyleguo123)
 
 James Call
 
