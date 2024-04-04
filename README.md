@@ -2,6 +2,71 @@
 
 ## UI
 
+The user interface facilitates logic with the server and entry into the game with desired settings. There are two main scripts that control this flow: `CreateAndJoinRooms.cs` and `ConnectToServer`. 
+
+The `ConnectToServer.cs` script manages a player's entry into the server with a nickname. It configures the server to sync the scene for all players in the game:
+
+```c#
+if (NameInput.text.Length > 0)
+{
+    PhotonNetwork.NickName = NameInput.text;
+    PhotonNetwork.ConnectUsingSettings();
+    PhotonNetwork.AutomaticallySyncScene = true;
+}
+
+SceneManager.LoadScene("Lobby");
+```
+
+The `CreateAndJoinRooms.cs` script manages the lobby scene, player selection, and map selection. 
+
+The `CreateAndJoinPanel` allows the user to create a room or join an existing one.
+
+```c#
+PhotonNetwork.CreateRoom(createInput.text, new RoomOptions() { BroadcastPropsChangeToAll = true });
+
+PhotonNetwork.JoinRoom(joinInput.text);
+```
+
+The `RoomPanel` displays players in the room and allows the local player to update his player. The creator of the room also has the option to change the map (opening the `MapSelectPanel`) and start the game for everyone in the room.
+
+Here is the logic for how players are added to this room:
+
+```c#
+public void UpdatePlayerList()
+{
+    // clear the current list of players
+    foreach (PlayerObject player in playerObjects)
+    {
+        Destroy(player.gameObject);
+    }
+    playerObjects.Clear();
+
+    foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+    { 
+        if (player.Value.IsLocal)
+        {
+            // instantiate the player object in the room panel
+            PlayerObject newPlayerObject = Instantiate(playerObjectPrefab, mainPlayerObjectParent);
+            newPlayerObject.SetPlayerName(player.Value);
+            newPlayerObject.ApplyLocalChanges();
+            playerObjects.Add(newPlayerObject);
+        }
+        else
+        {
+            PlayerObject newPlayerObject = Instantiate(playerObjectPrefab, playerObjectParent);
+            newPlayerObject.SetPlayerName(player.Value);
+            playerObjects.Add(newPlayerObject);
+        }
+    }
+}
+```
+
+The following code is run when the host selects 'Start Game'
+
+```c#
+PhotonNetwork.LoadLevel(mapName);
+```
+
 ### Design
 
 The design of the game utilized several asset sets, character asset sets, object asset sets, input assets, and background assets. the character assets objects and input assets were obtained from free or purchased assets from Unity while the background assets were created through COPIOLET AI generation and photo manipulation. COPIOLET was prompted for various pixel art background specifications and the images were refined until they matched a desired outcome. then they were taken into a photo editor to mirror aspects of the images to make them tileable. the backgrounds were then added to scenes and further adjusted to make them distinct from the scene objects. this might involve adding color changes in Unity or returning to the photo editor to make additional changes such as hue or saturation. A key aspect was matching the color scheme of the scene assets to the background but also making the background distinct from the scene assets to allow users to make the distinction.
@@ -168,6 +233,8 @@ Rai Katsuragawa - [Github](https://github.com/katsu-rai)
 Gilber Chen - [Github](https://github.com/ooioioogt)
 
 Kyle Guo - [Github](http://github.com/kyleguo123)
+
+Blaine Freestone - [Github](https://github.com/blainefreestone)
 
 James Call
 
