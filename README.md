@@ -1,8 +1,10 @@
 # Overview
 
-## UI
+## UI and Server Management
 
 The user interface facilitates logic with the server and entry into the game with desired settings. There are two main scripts that control this flow: `CreateAndJoinRooms.cs` and `ConnectToServer`. 
+
+The server is managed by the Photon Network library. Custom properties and RPC calls are used to sync the game state between all the players in the same room. All the scripts featured in this README will interact with Photon in order to maintain the game state.
 
 The `ConnectToServer.cs` script manages a player's entry into the server with a nickname. It configures the server to sync the scene for all players in the game:
 
@@ -209,12 +211,6 @@ void Start()
         }
     }
 ```
-
-## Server Management
-
-{Important! Do not say in this section that this is college assignment.}
-
-{Provide a description of your team project. Describe how to use the software.}
 
 # Development Environment
 
