@@ -45,6 +45,42 @@ Sprites for animations are free assets and were taken from itch.io. The animatio
 
 ## Health and Damage
 
+### Scripts
+
+The Health and Damage scripts use simple math to upkeep the remaining health for any given player.  The difficulty with these scripts comes with the fact that we are constantly trying to pass our updated health back and forth between every player.  To do this we ended up using an RPC function that updates a users health across the other computers in the network.
+
+```C#
+[PunRPC]
+    void UpdateHealthRPC(int health)
+    {
+        currentHealth = health;
+        if (currentHealth > 0)
+        {   
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        }
+        else
+        {
+            Die();
+        }
+    }
+```
+
+This code is called every couple seconds, which is something that needs to be changed in future iterations of the project.  The RPC call really only needs to be called every time something takes damage.  Right now we are sending out blank RPC calls to every computer in the network every few seconds, which is causing a lot of jittering and slowness.
+
+We have a bullet prefab that changes player health script when it impacts with the parent object.  We simply subtract a set amount of damage from the health script then we call the above RPC function to update across the network.
+
+```C#
+ void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        Health enemy = hitInfo.GetComponent<Health>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+        Destroy(gameObject);
+    }
+```
+
 ### Health Bar
 
 Tutorial Video
