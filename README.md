@@ -2,7 +2,7 @@
 
 ## UI and Server Management
 
-The user interface facilitates logic with the server and entry into the game with desired settings. There are two main scripts that control this flow: `CreateAndJoinRooms.cs` and `ConnectToServer`. 
+The user interface facilitates logic with the server and entry into the game with desired settings. There are two main scripts that control this flow: `CreateAndJoinRooms.cs` and `ConnectToServer`.
 
 The server is managed by the Photon Network library. Custom properties and RPC calls are used to sync the game state between all the players in the same room. All the scripts featured in this README will interact with Photon in order to maintain the game state.
 
@@ -19,7 +19,7 @@ if (NameInput.text.Length > 0)
 SceneManager.LoadScene("Lobby");
 ```
 
-The `CreateAndJoinRooms.cs` script manages the lobby scene, player selection, and map selection. 
+The `CreateAndJoinRooms.cs` script manages the lobby scene, player selection, and map selection.
 
 The `CreateAndJoinPanel` allows the user to create a room or join an existing one.
 
@@ -44,7 +44,7 @@ public void UpdatePlayerList()
     playerObjects.Clear();
 
     foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
-    { 
+    {
         if (player.Value.IsLocal)
         {
             // instantiate the player object in the room panel
@@ -108,13 +108,13 @@ Look at the PlayerMovement script here:
 
 ### Movement Animations
 
-Sprites for animations are free assets and were taken from itch.io. The animations play based on different parameters created in the unity animator. There are multiple animations implemented to each character inluding idle, run, jump, crouch, take damage, and die.
+Sprites for animations are free assets and were taken from itch.io. The animations play based on different parameters created in the unity animator. There are multiple animations implemented to each character including idle, run, jump, crouch, take damage, and die.
 
 ## Health and Damage
 
 ### Scripts
 
-The Health and Damage scripts use simple math to upkeep the remaining health for any given player.  The difficulty with these scripts comes with the fact that we are constantly trying to pass our updated health back and forth between every player.  To do this we ended up using an RPC function that updates a users health across the other computers in the network.
+The Health and Damage scripts use simple math to upkeep the remaining health for any given player. The difficulty with these scripts comes with the fact that we are constantly trying to pass our updated health back and forth between every player. To do this we ended up using an RPC function that updates a users health across the other computers in the network.
 
 ```C#
 [PunRPC]
@@ -122,7 +122,7 @@ The Health and Damage scripts use simple math to upkeep the remaining health for
     {
         currentHealth = health;
         if (currentHealth > 0)
-        {   
+        {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
         else
@@ -132,9 +132,9 @@ The Health and Damage scripts use simple math to upkeep the remaining health for
     }
 ```
 
-This code is called every couple seconds, which is something that needs to be changed in future iterations of the project.  The RPC call really only needs to be called every time something takes damage.  Right now we are sending out blank RPC calls to every computer in the network every few seconds, which is causing a lot of jittering and slowness.
+This code is called every couple seconds, which is something that needs to be changed in future iterations of the project. The RPC call really only needs to be called every time something takes damage. Right now we are sending out blank RPC calls to every computer in the network every few seconds, which is causing a lot of jittering and slowness.
 
-We have a bullet prefab that changes player health script when it impacts with the parent object.  We simply subtract a set amount of damage from the health script then we call the above RPC function to update across the network.
+We have a bullet prefab that changes player health script when it impacts with the parent object. We simply subtract a set amount of damage from the health script then we call the above RPC function to update across the network.
 
 ```C#
  void OnTriggerEnter2D(Collider2D hitInfo)
@@ -157,7 +157,7 @@ Tutorial Video
 In the HealthBar class, it only updates the health bar. You can call it in Health.cs file to display
 the health change anytime like when a character gets damage or healed.
 
-``` C#
+```C#
 public class HealthBar : MonoBehaviour
 {
     public Image healthBar;
@@ -170,7 +170,7 @@ public class HealthBar : MonoBehaviour
 
 ## Camera
 
-The Camera Script allows the Camera to act using different functions. Most importantly, the Camera will attach itself to the "Active" player. The active player will always be the player being controlled, so on each computer the active player will be different. Once there is no more active player, the camera will switch to a stagnant position overviewing the whole map. This allows players who have been defeated to see the rest of the living players until the game eventually ends.
+The Camera Script allows the Camera to act using different functions. Most importantly, the Camera will attach itself to the "Active" player. The active player will always be the player being controlled, so on each computer the active player will be different. Once there is no more active player, the camera will switch to a stagnant position showing overview the whole map. This allows players who have been defeated to see the rest of the living players until the game eventually ends.
 
 ```C#
     void Update()
@@ -201,7 +201,7 @@ The Camera Script allows the Camera to act using different functions. Most impor
 
 ```
 
-Connected to the idea of the Camera script is the UpdateTag script, which allows the game to figure out which mode the Camera should be set into. The UpdateTag script is applied to each player Prefab and tells the player to update their tage to "Player" when it detects that they are the host of their machine. This player tag is what signifies an active player to the Camera script.
+Connected to the idea of the Camera script is the UpdateTag script, which allows the game to figure out which mode the Camera should be set into. The UpdateTag script is applied to each player Prefab and tells the player to update their tag to "Player" when it detects that they are the host of their machine. This player tag is what signifies an active player to the Camera script.
 
 ```C#
 void Start()
@@ -214,27 +214,27 @@ void Start()
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
-
-{Describe the programming language that you used and any libraries.}
+This game was developed in Unity with the help of the Photon Network library, itch.io, and Photon.
 
 # Collaborators
 
-Uplandwave - [Github](https://github.com/uplandwave)
+Luke Briggs - Team Leader - [Github](https://github.com/uplandwave)
 
-Samuel Mickelsen - [Github](https://github.com/Sammickelsen)
+Samuel Mickelsen - Documentation Manager - [Github](https://github.com/Sammickelsen)
 
-Rai Katsuragawa - [Github](https://github.com/katsu-rai)
+Rai Katsuragawa - Configuration Manager - [Github](https://github.com/katsu-rai)
 
-Gilber Chen - [Github](https://github.com/ooioioogt)
+Gilber Chen - Project Manager - [Github](https://github.com/ooioioogt)
 
-Kyle Guo - [Github](http://github.com/kyleguo123)
+Kyle Guo - Graphic Designer - [Github](http://github.com/kyleguo123)
 
-Blaine Freestone - [Github](https://github.com/blainefreestone)
+Blaine Freestone - Project Manager - [Github](https://github.com/blainefreestone)
 
-James Call
+James Call - Graphic Designer - [Github](https://github.com/levijohnson1227)
 
-Levi Johnson
+Levi Johnson - Levi Johnson - [Github](https://github.com/jacall2016)
+
+* In addition to their own jobs the whole team worked on what needed to be done, not worrying about titles.
 
 # Useful Websites
 
@@ -243,8 +243,5 @@ Levi Johnson
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-
 - Design: Add layered backgrounds and animations to the backgrounds, add button press animations
 - Maps: Fix all tearing. Two way colliders.
-- Item 3
